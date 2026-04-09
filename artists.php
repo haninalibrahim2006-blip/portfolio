@@ -6,25 +6,19 @@ include("inc/functions.php");
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Benjamin Porobic">
-    <title>Home</title>
+    <title>Artists</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="topbar">
-    <!-- Logo -->
     <a class="logo" href="index.php">Radio Gaga</a>
-
-    <!-- Menu uit database -->
     <?php displayNavigation(); ?>
 </header>
 
-<main class="home">
-    <h1>Home</h1>
-    <h2>Welkom 🎧</h2>
-    <p>Op deze website kan je albums kiezen en nummers afspelen.</p>
-
-    <a class="btn" href="playlist.php">Ga naar Playlist</a>
+<main class="simple-page">
+    <h1>Artists</h1>
+    <?php displayArtists(); ?>
 </main>
 
 </body>

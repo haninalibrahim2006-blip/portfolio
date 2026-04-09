@@ -1,31 +1,60 @@
-<?php include("functies.php"); ?>
-<?php include("includes/header.php"); ?>
-
 <?php
-$message = "";
+include("inc/functions.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (addContactMessage($_POST['name'], $_POST['email'], $_POST['message'])) {
-        $message = "Bericht verzonden!";
-    } else {
-        $message = "Fout bij verzenden.";
-    }
+$msg = "";
+if(isset($_POST["firstname"]) && isset($_POST["lastname"])) {
+  $fn = $_POST["firstname"];
+  $ln = $_POST["lastname"];
+
+  if($fn != "" && $ln != "") {
+    $msg = "Thank you $fn $ln for contacting RadioGaga.";
+  }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Jouw Naam">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Radio Gaga</title>
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
 
-<div class="form-box">
-    <h2>Contact</h2>
+<header class="topbar">
+  <div class="logo">
+    <a href="index.php">Radio Gaga</a>
+    <p>Contact</p>
+  </div>
 
-    <?php if ($message != ""): ?>
-        <p class="message"><?php echo htmlspecialchars($message); ?></p>
-    <?php endif; ?>
+  <?php displayNavigation(); ?>
+</header>
 
-    <form method="POST">
-        <input type="text" name="name" placeholder="Naam" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Bericht" required></textarea>
-        <button type="submit">Verstuur</button>
-    </form>
+<div class="content">
+  <h1>Contact</h1>
+
+  <?php if($msg != "") { echo "<p class='thanks'>$msg</p>"; } ?>
+
+  <form method="post" class="contact-form">
+    <label>First Name *</label>
+    <input type="text" name="firstname" required>
+
+    <label>Last Name *</label>
+    <input type="text" name="lastname" required>
+
+    <label>Email or Phone</label>
+    <input type="text" name="contact">
+
+    <label>Message</label>
+    <textarea name="message"></textarea>
+
+    <div class="form-buttons">
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </div>
+  </form>
 </div>
 
-<?php include("includes/footer.php"); ?>
+</body>
+</html>
