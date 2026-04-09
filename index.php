@@ -1,85 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculator++</title>
-  <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanin Alibrahim | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="container">
-  <div class="top-part">Calculator++</div>
+<header>
+    <div class="logo">
+        <a href="index.php">Hanin Portfolio</a>
+    </div>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">About Me</a>
+        <a href="projects.php">Projects</a>
+        <a href="skills.php">Skills</a>
+        <a href="contact.php">Contact</a>
+    </nav>
+</header>
 
-  <div class="bottom-part">
-    <form method="post">
-      <input type="text" name="num1" placeholder="Nummer 1" required>
-      <input type="text" name="num2" placeholder="Nummer 2" required>
+<section class="hero">
+    <div class="hero-text">
+        <p class="small-intro">Software Developer Student</p>
+        <h1>Hanin Alibrahim</h1>
+        <h2>Motivated ICT student with an interest in software and web development</h2>
+        <p>
+            I am passionate about learning, building and improving. I enjoy creating websites, working on technical solutions and growing into a professional software developer.
+        </p>
 
-      <div class="operations">
-        <label><input type="checkbox" name="ops[]" value="add">+</label>
-        <label><input type="checkbox" name="ops[]" value="sub">−</label>
-        <label><input type="checkbox" name="ops[]" value="mul">×</label>
-        <label><input type="checkbox" name="ops[]" value="div">÷</label>
-        <label><input type="checkbox" name="ops[]" value="pow">^</label>
-        <label><input type="checkbox" name="ops[]" value="sqrt">√</label>
-      </div>
+        <div class="buttons">
+            <a href="projects.php" class="btn">View My Projects</a>
+            <a href="about.php" class="btn btn-outline">Read More About Me</a>
+        </div>
+    </div>
 
-      <button type="submit" class="btn-calc">=</button>
-      <a href="index.php" class="btn-reset">C</a>
-    </form>
+    <div class="hero-image">
+        <img src="images/foto.jpg" alt="Hanin Alibrahim">
+    </div>
+</section>
 
-    <?php
-    // --- PHP-berekeningen ---
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<section class="quick-highlights">
+    <div class="highlight-card">
+        <h3>Education</h3>
+        <p>ICT student at ROC Ter AA with practical technical knowledge.</p>
+    </div>
 
-      // Waarden ophalen uit formulier
-      $n1 = $_POST['num1'];
-      $n2 = $_POST['num2'];
-      $ops = $_POST['ops'] ?? [];
+    <div class="highlight-card">
+        <h3>Experience</h3>
+        <p>Internship experience at SintLucas in ICT support.</p>
+    </div>
 
-      // Controleren of de invoer numeriek is
-      if (is_numeric($n1) && is_numeric($n2)) {
+    <div class="highlight-card">
+        <h3>Goal</h3>
+        <p>To grow into a software developer and continue to HBO education.</p>
+    </div>
+</section>
 
-        echo "<div class='result-box'>";
-
-        foreach ($ops as $o) {
-          switch ($o) {
-            case "add":
-              echo "$n1 + $n2 = " . ($n1 + $n2) . "<br>";
-              break;
-
-            case "sub":
-              echo "$n1 - $n2 = " . ($n1 - $n2) . "<br>";
-              break;
-
-            case "mul":
-              echo "$n1 × $n2 = " . ($n1 * $n2) . "<br>";
-              break;
-
-            case "div":
-              echo $n2 != 0
-                ? "$n1 ÷ $n2 = " . ($n1 / $n2) . "<br>"
-                : "Delen door 0!<br>";
-              break;
-
-            case "pow":
-              echo "$n1 ^ $n2 = " . pow($n1, $n2) . "<br>";
-              break;
-
-            case "sqrt":
-              echo "√$n1 = " . sqrt($n1) . "<br>";
-              break;
-          }
-        }
-
-        echo "</div>";
-      } else {
-        echo "<div class='result-box'>Voer geldige nummers in!</div>";
-      }
-    }
-    ?>
-  </div>
-</div>
+<footer>
+    <p>© 2025 Hanin Alibrahim | Portfolio</p>
+</footer>
 
 </body>
 </html>

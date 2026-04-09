@@ -1,60 +1,62 @@
-<?php
-include("inc/functions.php");
-
-$msg = "";
-if(isset($_POST["firstname"]) && isset($_POST["lastname"])) {
-  $fn = $_POST["firstname"];
-  $ln = $_POST["lastname"];
-
-  if($fn != "" && $ln != "") {
-    $msg = "Thank you $fn $ln for contacting RadioGaga.";
-  }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Jouw Naam">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Radio Gaga</title>
-  <link rel="stylesheet" href="css/style.css?v=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Hanin Alibrahim</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header class="topbar">
-  <div class="logo">
-    <a href="index.php">Radio Gaga</a>
-    <p>Contact</p>
-  </div>
-
-  <?php displayNavigation(); ?>
+<header>
+    <div class="logo">
+        <a href="index.php">Hanin Portfolio</a>
+    </div>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">About Me</a>
+        <a href="projects.php">Projects</a>
+        <a href="skills.php">Skills</a>
+        <a href="contact.php">Contact</a>
+    </nav>
 </header>
 
-<div class="content">
-  <h1>Contact</h1>
+<section class="page-section">
+    <h1>Contact</h1>
 
-  <?php if($msg != "") { echo "<p class='thanks'>$msg</p>"; } ?>
+    <div class="contact-card">
+        <h2>Get In Touch</h2>
+        <p>
+            I am always open to learning opportunities, internships and new experiences in ICT and software development.
+        </p>
 
-  <form method="post" class="contact-form">
-    <label>First Name *</label>
-    <input type="text" name="firstname" required>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-label">Name</span>
+                <span class="contact-value">Hanin Alibrahim</span>
+            </div>
 
-    <label>Last Name *</label>
-    <input type="text" name="lastname" required>
+            <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <span class="contact-value">91501@roc-teraa.nl</span>
+            </div>
 
-    <label>Email or Phone</label>
-    <input type="text" name="contact">
+            <div class="contact-item">
+                <span class="contact-label">Phone</span>
+                <span class="contact-value">0684439281</span>
+            </div>
 
-    <label>Message</label>
-    <textarea name="message"></textarea>
-
-    <div class="form-buttons">
-      <button type="submit">Submit</button>
-      <button type="reset">Reset</button>
+            <div class="contact-item">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">The Netherlands</span>
+            </div>
+        </div>
     </div>
-  </form>
-</div>
+</section>
+
+<footer>
+    <p>© 2025 Hanin Alibrahim | Portfolio</p>
+</footer>
 
 </body>
 </html>
